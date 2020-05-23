@@ -19,6 +19,18 @@ const answer = [
         question: ["Bye", "bye", "See ya", "see you", "see you later"]
     }
 ];
+// app.get('/:sentence', (req, res) => {
+//     const pam = answer.filter(ans => req.params.sentence in ans[answer]);
+//     console.log(pam)
+//     if(pam.length == 0){
+//         req.end(JSON.stringify({
+//             answer: "I can't understand",
+//             question: req.params.sentence
+//         }));
+//     } else{
+//         res.end(JSON.stringify(pam));
+//     }
+// });
 app.get('/', (req, res) => {
     res.end(JSON.stringify(answer));
 });
