@@ -8,7 +8,7 @@ const answer = [
     },
     {
         answer: ["My name is kkoma", "My name is jiwook"],
-        question: ["What is your name?","what is your name?", "name?", "Name?"]
+        question: ["What is your name","what is your name", "name", "Name"]
     },
     {
         answer: ["It's top secret","You are so rude"],
@@ -34,7 +34,7 @@ app.get('/:sentence', (req, res) => {
         }
         ));
     } else{
-        res.end(JSON.stringify(ans));
+        res.end(JSON.stringify(ans[0]));
     }
 
     // console.log(found)
