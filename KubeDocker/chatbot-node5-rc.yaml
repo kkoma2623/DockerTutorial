@@ -4,7 +4,7 @@ kind: ReplicationController
 
 metadata:
 
-  name: chatbot-node4-rc
+  name: chatbot-node5-rc
 
 spec:
 
@@ -12,28 +12,29 @@ spec:
 
   selector:
 
-    app: chatbot-node4
+    app: chatbot-node5
 
   template:
 
     metadata:
 
-      name: chatbot-node4-pod
+      name: chatbot-node5-pod
 
       labels:
 
-        app: chatbot-node4
+        app: chatbot-node5
 
     spec:
 
       containers:
 
-      - name: chatbot-node4
+      - name: chatbot-node5
 
-        image: gcr.io/bamboo-velocity-278205/chatbot-node4:v7
+        image: gcr.io/bamboo-velocity-278205/chatbot-node5:v8
 
         imagePullPolicy: Always
 
+        command: 
         ports:
 
         - containerPort: 8080

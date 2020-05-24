@@ -4,13 +4,13 @@ kind: Service
 
 metadata:
 
-  name: chatbot-node4-svc
+  name: chatbot-node5-svc
 
 spec:
 
   selector:
 
-    app: chatbot-node4
+    app: chatbot-node5
 
   ports:
 

@@ -1,4 +1,4 @@
-FROM node
+FROM node:carbon
 EXPOSE 8080
 COPY server.js .
-CMD ["npm install express","node", "index.js"]
+CMD node server.js > log.out
