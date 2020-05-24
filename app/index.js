@@ -8,45 +8,40 @@ const answer = [
     },
     {
         answer: ["My name is kkoma", "My name is jiwook"],
-        question: ["What is your name?","what is your name?", "name?", "Name?"]
+        question: ["What is your name","what is your name", "name", "Name"]
     },
     {
         answer: ["It's top secret","You are so rude"],
-        question: ["How old are you?", "age?"]
+        question: ["How old are you", "age"]
     },
     {
         answer: ["Bye","Bye bye", "see ya", "Good morning good afternoon and good night"],
         question: ["Bye", "bye", "See ya", "see you", "see you later"]
     }
 ];
-// app.get('/:sentence', (req, res) => {
-//     const pam = answer.filter(ans => req.params.sentence in ans[answer]);
-//     console.log(pam)
-//     if(pam.length == 0){
-//         req.end(JSON.stringify({
-//             answer: "I can't understand",
-//             question: req.params.sentence
-//         }));
-//     } else{
-//         res.end(JSON.stringify(pam));
-//     }
-// });
-app.get('/', (req, res) => {
-    res.end(JSON.stringify(answer));
-});
-app.get('/hi', (req, res) => {
-    res.end(JSON.stringify(answer[0]));
-});
-app.get('/name', (req, res) => {
-    res.end(JSON.stringify(answer[1]));
-});
-app.get('/age', (req, res) => {
-    res.end(JSON.stringify(answer[2]));
-});
-app.get('/bye', (req, res) => {
-    res.end(JSON.stringify(answer[3]));
+app.get('/:sentence', (req, res) => {
+    const sen = req.params.sentence;
+    
+    const ans = answer.filter(element => {
+        return element["question"].find(ele => sen === ele);
+    });
+
+    if(ans.length === 0){
+        res.end(JSON.stringify(
+            {
+            answer: ["Sorry I can't understand"],
+            question: [sen]
+        }
+        ));
+    } else{
+        res.end(JSON.stringify(ans[0]));
+    }
+
+    // console.log(found)
+    
 });
 
-app.listen(3000, function () {
-    console.log('test server listening on port 3000');
+
+app.listen(8080, function () {
+    console.log('test server listening on port 8081');
 });
