@@ -1,0 +1,23 @@
+apiVersion: v1
+
+kind: Service
+
+metadata:
+
+  name: chatbot-node4-svc
+
+spec:
+
+  selector:
+
+    app: chatbot-node4
+
+  ports:
+
+    - port: 80
+
+      protocol: TCP
+
+      targetPort: 8080
+
+  type: LoadBalancer

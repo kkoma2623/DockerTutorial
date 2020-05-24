@@ -1,8 +1,10 @@
-var http = require('http');
+// index.js
+const express = require('express');
+const app = express();
 const answer = [
     {
         answer: ["Hi", "Hello", "hi", "hello"],
-        question: ["Hello", "Hi", "hi", "hello"]
+        question: ["Hello", "Hi", "hi", "hello", ":aklsjlkasdj"]
     },
     {
         answer: ["My name is kkoma", "My name is jiwook"],
@@ -17,14 +19,12 @@ const answer = [
         question: ["Bye", "bye", "See ya", "see you", "see you later"]
     }
 ];
-
-var handleRequest = function(req, res) {
-    res.writeHead(200);
-    const sen = req.params;
+app.get('/:sentence', (req, res) => {
+    const sen = req.params.sentence;
+    
     const ans = answer.filter(element => {
-            return element["question"].find(ele => sen === ele);
-        }
-    );
+        return element["question"].find(ele => sen === ele);
+    });
 
     if(ans.length === 0){
         res.end(JSON.stringify(
@@ -37,8 +37,11 @@ var handleRequest = function(req, res) {
         res.end(JSON.stringify(ans[0]));
     }
 
-}
+    // console.log(found)
+    
+});
 
-var www = http.createServer(handleRequest);
 
-www.listen(8081);
+app.listen(8080, function () {
+    console.log('test server listening on port 8081');
+});

@@ -1,0 +1,39 @@
+apiVersion: v1
+
+kind: ReplicationController
+
+metadata:
+
+  name: chatbot-node4-rc
+
+spec:
+
+  replicas: 3
+
+  selector:
+
+    app: chatbot-node4
+
+  template:
+
+    metadata:
+
+      name: chatbot-node4-pod
+
+      labels:
+
+        app: chatbot-node4
+
+    spec:
+
+      containers:
+
+      - name: chatbot-node4
+
+        image: gcr.io/bamboo-velocity-278205/chatbot-node4:v7
+
+        imagePullPolicy: Always
+
+        ports:
+
+        - containerPort: 8080
