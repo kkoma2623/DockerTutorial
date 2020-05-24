@@ -4,7 +4,7 @@ const app = express();
 const answer = [
     {
         answer: ["Hi", "Hello", "hi", "hello"],
-        question: ["Hello", "Hi", "hi", "hello", ":aklsjlkasdj"]
+        question: ["Hello", "Hi", "hi", "hello"]
     },
     {
         answer: ["My name is kkoma", "My name is jiwook"],
