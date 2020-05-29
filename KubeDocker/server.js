@@ -27,14 +27,14 @@ app.get('/:sentence', (req, res) => {
     });
 
     if(ans.length === 0){
-        res.end(JSON.stringify(
+        res.json(
             {
             answer: ["Sorry I can't understand"],
             question: [sen]
         }
-        ));
+        );
     } else{
-        res.end(JSON.stringify(ans[0]));
+        res.json(ans[0]);
     }
 
     // console.log(found)
